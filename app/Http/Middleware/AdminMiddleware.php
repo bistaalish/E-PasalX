@@ -27,6 +27,10 @@ class AdminMiddleware
             abort(403, 'Unauthorized');
         }
 
+            $user = Auth::user();
+            view()->share('user', $user);
+
+
         return $next($request);
         }
 }
