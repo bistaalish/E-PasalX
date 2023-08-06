@@ -8,7 +8,7 @@
             <div class="p-6 bg-white border-b border-gray-200">
 
                 <div  class="flex justify-between mb-4">
-                    <h2 class="text-2xl font-semibold">Users</h2>
+                    <h1 class="text-2xl font-semibold">User Management</h1>
                     <form action="{{ route('admin.users.create', $user) }}" method="GET" class="inline">
                         @csrf
                         @method('GET')
@@ -16,15 +16,42 @@
                     </form>
                 </div>
 
+                                    <!-- Search Form -->
+                                    <form action="{{ route('admin.users.index') }}" method="GET" class="mb-4">
+                                        <div class="flex">
+                                            <input type="text" name="search" placeholder="Search by name or email" class="form-control" value="{{ request('search') }}">
+                                            <button type="submit" class="btn btn-primary ml-2">Search</button>
+                                        </div>
+                                    </form>
+
+                                    <!-- Filter Form -->
+                                    <form action="{{ route('admin.users.index') }}" method="GET" class="mb-4">
+                                        <div class="flex">
+                                            <label for="role" class="mr-2">Filter by Role:</label>
+                                            <select name="role" id="role" class="form-control">
+                                                <option value="">All</option>
+                                                @foreach ($roles as $role)
+                                                    <option value="{{ $role->name }}" @if (request('role') === $role->name) selected @endif>{{ $role->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <button type="submit" class="btn btn-primary ml-2">Filter</button>
+                                        </div>
+                                    </form>
 
                 {{-- User Table --}}
                 <table class="table-auto w-full">
                     <thead>
                         <tr>
-                            <th class="px-4 py-2">Name</th>
-                            <th class="px-4 py-2">Email</th>
+                            <th class="px-4 py-2"><a href="{{ route('admin.users.index', ['sort' => 'name', 'order' => request('sort') === 'name' && request('order') === 'asc' ? 'desc' : 'asc']) }}">
+                                Name @if(request('sort') === 'name') @if(request('order') === 'asc') <i class="fas fa-sort-up"></i> @else <i class="fas fa-sort-down"></i> @endif @endif
+                            </a></th>
+                            <th class="px-4 py-2"><a href="{{ route('admin.users.index', ['sort' => 'email', 'order' => request('sort') === 'email' && request('order') === 'asc' ? 'desc' : 'asc']) }}">
+                                Email @if(request('sort') === 'email') @if(request('order') === 'asc') <i class="fas fa-sort-up"></i> @else <i class="fas fa-sort-down"></i> @endif @endif
+                            </a></th>
                             <th class="px-4 py-2">Roles</th>
-                            <th class="px-4 py-2">Phone</th>
+                            <th class="px-4 py-2"><a href="{{ route('admin.users.index', ['sort' => 'phone', 'order' => request('sort') === 'phone' && request('order') === 'asc' ? 'desc' : 'asc']) }}">
+                                Phone @if(request('sort') === 'roles') @if(request('order') === 'asc') <i class="fas fa-sort-up"></i> @else <i class="fas fa-sort-down"></i> @endif @endif
+                            </a></th>
                             <th class="px-4 py-2">Actions</th>
                         </tr>
                     </thead>

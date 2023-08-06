@@ -14,10 +14,39 @@ class AdminUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(10);
-        return view('admin.users.index', compact('users'));
+        $query = User::query();
+
+        // Search by name or email
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%$search%")
+                    ->orWhere('email', 'like', "%$search%");
+            });
+        }
+
+        // Filter by role
+        if ($request->has('role')) {
+            $role = $request->input('role');
+            if($role == "") $users=User::all();
+            else {
+
+            $query->whereHas('roles', function ($q) use ($role) {
+                $q->where('name', $role);
+            });
+            }
+        }
+
+        // Sorting
+        $sort = $request->input('sort', 'name');
+        $order = $request->input('order', 'asc');
+        $query->orderBy($sort, $order);
+
+        $users = $query->paginate(10);
+        $roles = Role::all();
+        return view('admin.users.index', compact('users','roles'));
     }
 
     /**
