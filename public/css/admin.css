@@ -203,6 +203,77 @@ button.edit-button {
     transition: background-color 0.3s; /* Smooth transition for background color change */
   }
 
+  /* Custom CSS for Edit button */
+button.create-button {
+  background-color: #1c63fa;
+    color: #fff;
+    width: 100px;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background color change */
+  }
+
+button.create-button:hover {
+    background-color: #1c166e; /* Darker green color on hover */
+  }
+
+button.create-button:active {
+    background-color: #211b79; /* Slightly darker green color when the button is clicked */
+  }
+
+  #role {
+    margin-left: 10px;
+    margin-right: 10px
+}
+
+button.search-btn {
+    background-color: #db31b6;
+    margin-left: 10px;
+    color: #fff;
+    width: 100px;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.search-button:hover {
+    background-color: #bd2e9e; /* Darker green color on hover */
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button.filter-btn {
+    background-color: #c4ba2f;
+    margin-left: 10px;
+    color: #fff;
+    width: 100px;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-filter-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+button.filter-btn:hover {
+    background-color: #ada425; /* Darker green color on hover */
+  }
 .edit-button:hover {
     background-color: #45a049; /* Darker green color on hover */
   }

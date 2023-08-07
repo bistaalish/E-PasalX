@@ -13,7 +13,7 @@
             <div class="navigation-container">
                 <x-navigation>
                     <x-navigation-link route="{{ route('admin.dashboard') }}" icon="fa-tachometer-alt">Dashboard</x-navigation-link>
-                    <x-navigation-link route="{{ route('admin.dashboard') }}" icon="fa-list-alt">Categories</x-navigation-link>
+                    <x-navigation-link route="{{ route('admin.category.index') }}" icon="fa-list-alt">Categories</x-navigation-link>
                     <x-navigation-link route="{{ route('admin.dashboard') }}" icon="fa-shopping-cart">Products</x-navigation-link>
                     <x-navigation-link route="{{ route('admin.dashboard') }}" icon="fa-user-lock">Roles</x-navigation-link>
                     <x-navigation-link route="{{ route('admin.users.index') }}" icon="fa-users">Users</x-navigation-link>
