@@ -1,5 +1,8 @@
 /* admin.css */
 /* Override button text color for delete button */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Global Styles */
 body {
@@ -149,6 +152,7 @@ button.delete-btn {
     color: #fff;
     border: none;
     padding: 8px 16px;
+    width: 100px;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -191,6 +195,7 @@ button.edit-btn-container {
 button.edit-button {
     background-color: #4CAF50;
     color: #fff;
+    width: 100px;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;

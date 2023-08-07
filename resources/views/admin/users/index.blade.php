@@ -62,12 +62,13 @@
                             <td class="border px-4 py-2">{{ $user->email }}</td>
                             <td class="border px-4 py-2">{{ implode(', ', $user->roles->pluck('name')->toArray()) }}</td>
                             <td class="border px-4 py-2">{{ $user->phone }}</td>
-                            <td class="border px-4 py-2">
+                            <td class="border px-4 py-2 flex space">
                                 <form action="{{ route('admin.users.edit', $user) }}" method="GET" class="inline">
                                     @csrf
                                     @method('GET')
                                     <button type="submit" class="edit-button">Edit</button>
                                 </form>
+                                &nbsp;&nbsp;
                                 <form action="{{ route('admin.users.delete', $user) }}" method="POST" class="inline">
                                     @csrf
                                     @method('POST')

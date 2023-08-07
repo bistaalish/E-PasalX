@@ -17,8 +17,8 @@
                     <x-navigation-link route="{{ route('admin.dashboard') }}" icon="fa-shopping-cart">Products</x-navigation-link>
                     <x-navigation-link route="{{ route('admin.dashboard') }}" icon="fa-user-lock">Roles</x-navigation-link>
                     <x-navigation-link route="{{ route('admin.users.index') }}" icon="fa-users">Users</x-navigation-link>
-                    <x-navigation-link route="{{ route('admin.dashboard') }}" icon="fa-user-circle">Profiles</x-navigation-link>
-                    <x-navigation-link route="{{ route('dashboard') }}" icon="fa-sign-out-alt">Logout</x-navigation-link>
+                    {{-- <x-navigation-link route="{{ route('profile') }}" icon="fa-user-circle">Profile</x-navigation-link> --}}
+                    {{-- <x-navigation-link route="{{ route('logout') }}" icon="fa-sign-out-alt">Logout</x-navigation-link> --}}
                 </x-navigation>
             </div>
         </x-admin-sidebar>
