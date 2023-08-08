@@ -8,13 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    protected $table = 'categories';
     protected $fillable = ['name', 'description', 'slug', 'parent_id'];
 
     // Define the relationship for sub-categories (nested categories)
-    public function children()
-    {
-        return $this->hasMany(Category::class, 'parent_id', 'id');
-    }
 
     // Define the relationship for parent category (one-to-many inverse)
     public function parent()

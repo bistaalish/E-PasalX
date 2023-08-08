@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,6 +52,15 @@ Route::middleware('auth','admin')->group(function () {
     Route::delete('/admin/category/{category}', [CategoryController::class, 'destroy'])->name('admin.category.delete');
     Route::post('/admin/category/{category}', [CategoryController::class, 'delete'])->name('admin.category.destroy');
     Route::put('/admin/categories/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
+
+    // Product Routes
+    Route::get('/admin/product',[ProductController::class,'index'])->name('admin.product.index');
+    Route::get('/admin/product/create',[ProductController::class,'create'])->name('admin.product.create');
+    Route::post('/admin/product/store',[ProductController::class,'store'])->name('admin.product.store');
+    Route::get('/admin/product/{id}/edit', [ProductController::class, 'edit'])->name('admin.product.edit');
+    Route::put('/admin/product/{id}', [ProductController::class, 'update'])->name('admin.product.update');
+
+    Route::delete('/admin/product/{id}', [ProductController::class, 'destroy'])->name('admin.product.delete');
 
 });
 
