@@ -10,6 +10,7 @@
                 <th class="px-4 py-2">Price</th>
                 <th class="px-4 py-2">Quantity</th>
                 <th class="px-4 py-2">Categories</th>
+                <th class="px-4 py-2">Images</th>
                 <th class="px-4 py-2">Actions</th>
             </tr>
         </thead>
@@ -22,6 +23,11 @@
                 <td class="border px-4 py-2">
                     @foreach($product->categories as $category)
                         {{ $category->name }}@if(!$loop->last), @endif
+                    @endforeach
+                </td>
+                <td class="border px-4 py-2">
+                    @foreach($product->images as $image)
+                        <img src="{{ asset('storage/' . $image->image_path) }}" alt="Product Image" class="product-image">
                     @endforeach
                 </td>
                 <td class="border px-4 py-2">

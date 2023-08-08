@@ -282,3 +282,8 @@ button.filter-btn:hover {
     background-color: #3e8e41; /* Slightly darker green color when the button is clicked */
   }
 
+/* Add this to your CSS stylesheet */
+.product-div{
+    display: flex;
+
+}

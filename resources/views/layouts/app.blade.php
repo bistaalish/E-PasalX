@@ -16,10 +16,19 @@
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-S/BB2i7PT6JRxCAKxOQ6E6BM/EblOfFvPkBsQh0+U6EoQkbJjEzP/NHEW1o5Vf5bMvchR7eH3ugw6AhjzXhPQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 <!-- JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-o7JTlFEXn9WQ4m8SZK7bX2ujD6K7XKZUBS5MxwLdJvBCmK8gtFvlzgka+jWiD5q8ftmSRvnAn42IoXACfX5+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{{-- Swiper --}}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 
         <!-- Scripts -->
@@ -51,4 +60,6 @@
             </main>
         </div>
     </body>
+    <script src="{{ asset('js/admin.js') }}"></script>
+
 </html>

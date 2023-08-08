@@ -6,14 +6,21 @@
 <x-createcontainer>
     <div class="card-header">{{ __('Create Product') }}</div>
     <br>
-    <form method="POST" action="{{ route('admin.product.store') }}">
+    <form method="POST" action="{{ route('admin.product.store') }}" enctype="multipart/form-data">
 
         @csrf
-
         <div class="mb-4">
             <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
             <input type="text" name="name" id="name" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
         </div>
+
+        <!-- Add input field for image uploads -->
+        <div class="mb-4">
+            <label for="images" class="block text-gray-700 text-sm font-bold mb-2">Images:</label>
+            <input type="file" name="images[]" id="images" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" multiple required>
+        </div>
+
+
 
         <div class="mb-4">
             <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description:</label>
