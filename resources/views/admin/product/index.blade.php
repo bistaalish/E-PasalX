@@ -24,7 +24,7 @@
                         {{ $category->name }}@if(!$loop->last), @endif
                     @endforeach
                 </td>
-                <td>
+                <td class="border px-4 py-2">
                     {{-- <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-info">View</a> --}}
                     {{-- <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-primary">Edit</a> --}}
                     <form action="{{ route('admin.product.edit',$product->id) }}" method="GET" class="inline">

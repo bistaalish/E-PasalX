@@ -42,9 +42,18 @@ class ProductController extends Controller
             'quantity' => 'required|integer',
             'is_active' => 'boolean',
             'category_ids' => 'nullable|array',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust allowed image formats and max size for each image
         ]);
 
         $product = Product::create($validatedData);
+            // Handle multiple image uploads
+    if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+            $imagePath = $image->store('product_images', 'public');
+            $product->images()->create(['image_path' => $imagePath]);
+        }
+    }
+
         $product->categories()->sync($request->category_ids);
 
         return redirect()->route('admin.product.index')
@@ -83,6 +92,7 @@ class ProductController extends Controller
             'quantity' => 'required|integer',
             'is_active' => 'boolean',
             'category_ids' => 'nullable|array',
+
         ]);
 
         $product = Product::findOrFail($id);
